@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Carilyn's Vanilla Weather App</title>
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -10,18 +13,31 @@
       crossorigin="anonymous"
     />
 
-    <title>Carilyn's Vanilla Weather App</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+    <script src="https://kit.fontawesome.com/df25a1a8f0.js"
+    crossorigin="anonymous">
+  </script>
 
     <link rel="stylesheet" href="src/style.css" />
   </head>
+
   <body>
-    <h1 id="current-city">🎡 Taichung</h1>
+    <div class="container">
+      <div class="weather-app">
+        <form id="search-form">
+          <input 
+          type= "search"
+          placeholder="🔍Enter city....."
+          class="form-control"
+          aria-label = "Search through site content"
+          style="border-radius: 12px"
+          id="city-input"/>
+      <br/>
+      <input type="submit" class="submit-button" value="Search"/>
+      <button type="button" id="currentButton">Current</button>
+    </form>
+        <br/>
+
+    <h1 id="current-city">🎡 Taichung </h1>
     <h2>
       <span id="tempC"> 19</span>°C |
       <a href="#" id="tempF"><span id="tmpF"></span>°F </a>
@@ -39,8 +55,17 @@
           />
         </ul>
       </div>
+
+      <div class="col-6">
+        <ul>
+          <li>Description</li>
+          <li>Humidity</li>
+          <li> Wind</li>
+        </ul>
+    </div>
     </div>
 
     <script src="src/app.js"></script>
+  
   </body>
 </html>
