@@ -11,7 +11,7 @@ function showTemperature(response) {
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
-    "https://openweathermap.orgimg/wn/${response.data.weather[0].icon}@2x.png"
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
   let humidity = document.querySelector("#humi");
@@ -58,3 +58,15 @@ function enterCity(event) {
 
 let currentCity = document.querySelector("#search-form");
 currentCity.addEventListener("submit", enterCity);
+
+function tempConvert() {
+  let tc = document.querySelector("#tempC").textContent;
+  let fahrenheitTemperature = Math.round((tc * 9) / 5) + 32;
+  document.querySelector("#tmpF").tempContent = fahrenheitTemperature;
+}
+
+let temp = document.querySelector("#tempF");
+temp.addEventListener("click", tempConvert);
+
+let button = document.querySelector("#currrentButton");
+button.addEventListener("click", currentTemp);

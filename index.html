@@ -13,9 +13,10 @@
       crossorigin="anonymous"
     />
 
-    <script src="https://kit.fontawesome.com/df25a1a8f0.js"
-    crossorigin="anonymous">
-  </script>
+    <script
+      src="https://kit.fontawesome.com/df25a1a8f0.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link rel="stylesheet" href="src/style.css" />
   </head>
@@ -24,47 +25,59 @@
     <div class="container">
       <div class="weather-app">
         <form id="search-form">
-          <input 
-          type= "search"
-          placeholder="🔍Enter city....."
-          class="form-control"
-          aria-label = "Search through site content"
-          style="border-radius: 12px"
-          id="city-input"/>
-      <br/>
-      <input type="submit" class="submit-button" value="Search"/>
-      <button type="button" id="currentButton">Current</button>
-    </form>
-        <br/>
-
-    <h1 id="current-city">🎡 Taichung </h1>
-    <h2>
-      <span id="tempC"> 19</span>°C |
-      <a href="#" id="tempF"><span id="tmpF"></span>°F </a>
-    </h2>
-
-    <div class="row">
-      <div class="col-6">
-        <ul>
-          <li id="date-and-time">Tuesday 16:00</li>
-          <li>Sunny</li>
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="Sunny icon"
-            id="icon"
+          <input
+            type="search"
+            placeholder="🔍Enter city....."
+            class="form-control"
+            aria-label="Search through site content"
+            style="border-radius: 12px"
+            id="city-input"
           />
-        </ul>
+          <br />
+          <input type="submit" class="submit-button" value="Search" />
+          <button type="button" id="currentButton">Current</button>
+        </form>
+        <br />
+
+        <h1 id="current-city">🎡 Taichung</h1>
+        <h2>
+          <span id="tempC"> 19</span>°C |
+          <a href="#" id="tempF"><span id="tmpF"></span>°F </a>
+        </h2>
+
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li id="date-and-time">Tuesday 16:00</li>
+              <li>Sunny</li>
+              <img
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="Sunny icon"
+                id="icon"
+              />
+            </ul>
+          </div>
+
+          <div class="col-6">
+            <ul>
+              <li>💭 Description: <span id="desc"></span></li>
+              <li>💧 Humidity:<span id="humi"></span> %</li>
+              <li>⾵ Wind:<span id="wind"></span> meter/sec</li>
+            </ul>
+          </div>
+        </div>
+        <script src="src/app.js"></script>
       </div>
 
-      <div class="col-6">
-        <ul>
-          <li>💭 Description: <span id="desc"></span></li>
-          <li>💧 Humidity:<span id="humi"></span> %</li>
-          <li>⾵ Wind:<span id="wind"></span> meter/sec</li>
-        </ul>
+      <p>
+        <a
+          href="https://github.com/lynlyn919/Vanilla-Weather-App"
+          target="_blank"
+        >
+          Open source code
+        </a>
+        by Carilyn Chang
+      </p>
     </div>
-
-    <script src="src/app.js"></script>
-  
   </body>
 </html>
