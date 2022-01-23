@@ -69,7 +69,7 @@ function retrievePosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   console.log(position.coords.latitude);
-  console.log(postion.coords.longitude);
+  console.log(position.coords.longitude);
   let units = "metric";
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
@@ -84,7 +84,7 @@ function currentTemp(event) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
-function showForcast(response) {
+function showForecast(response) {
   console.log(response.data);
 }
 
