@@ -44,7 +44,7 @@ function showTemperature(response) {
   console.log(temp);
 
   let heading = document.querySelector("#tempC");
-  heading.innerHTML = `${temp}`;
+  heading.innerHTML = ` ${temp} `;
 
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = response.data.name;
