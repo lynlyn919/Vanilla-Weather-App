@@ -11,14 +11,6 @@ h1 {
   margin: 15px;
 }
 
-.weather-app {
-  border: 1 px solid rgb(192, 192, 192);
-  border-radius: 1px;
-  padding: 30px;
-  margin: 20px auto;
-  max-width: 1000px;
-}
-
 ul {
   margin: 20;
   padding: 30;
@@ -31,4 +23,12 @@ li {
   line-height: 1px;
   list-style: none;
   padding-top: 7%;
+}
+
+.weather-app {
+  border: 1 px solid rgb(192, 192, 192);
+  border-radius: 1px;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 1000px;
 }

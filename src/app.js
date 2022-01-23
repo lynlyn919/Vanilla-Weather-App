@@ -1,3 +1,42 @@
+function formatDate(date) {
+  let currentHour = date.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMinute = date.getMinutes();
+  if (currentMinute < 10) {
+    currentMinute = `0${currentMinute}`;
+  }
+
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let currentYear = date.getFullYear();
+  let currentDay = days[date.getDay()];
+  let currentMonth = months[date.getMonth()];
+  let currentDate = date.getDate();
+  let fullCurrentDate = `${currentDay} - ${currentMonth}${currentDate} - ${currentYear}-
+${currentHour}:${currentMinute}`;
+
+  return fullCurrentDate;
+}
+
+let dateElement = document.querySelector("#date-and-time");
+let cuurentTime = new Date();
+dateElement.innerHTML = formatDate(currentTime);
+
 function showTemperature(response) {
   let temp = Math.round(response.data.main.temp);
   console.log(temp);
@@ -40,6 +79,7 @@ function currentTemp(event) {
 
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
+
 function showForcast(response) {
   console.log(response.data);
 }
@@ -52,7 +92,7 @@ function enterCity(event) {
 
   axios.get(apiUrl).then(showTemperature);
 
-  let currentCity = document.querySelector("current-city");
+  let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = cityInput.value;
 }
 
