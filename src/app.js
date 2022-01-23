@@ -37,6 +37,8 @@ let dateElement = document.querySelector("#date-and-time");
 let cuurentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
+///
+
 function showTemperature(response) {
   let temp = Math.round(response.data.main.temp);
   console.log(temp);
@@ -50,7 +52,7 @@ function showTemperature(response) {
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
   let humidity = document.querySelector("#humi");
@@ -70,10 +72,12 @@ function retrievePosition(position) {
   console.log(postion.coords.longitude);
   let units = "metric";
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiEndpoint = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showTemperature);
 }
+
 function currentTemp(event) {
   event.preventDefault();
 
