@@ -106,7 +106,7 @@ currentCity.addEventListener("submit", enterCity);
 function tempConvert() {
   let tc = document.querySelector("#tempC").textContent;
   let fahrenheitTemperature = Math.round((tc * 9) / 5) + 32;
-  document.querySelector("#tmpF").tempContent = fahrenheitTemperature;
+  document.querySelector("#tmpF").textContent = fahrenheitTemperature;
 }
 
 let temp = document.querySelector("#tempF");
