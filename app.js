@@ -39,7 +39,52 @@ dateElement.innerHTML = formatDate(currentTime);
 
 ///
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function forecastHTML(response) {
+  let row = document.querySelector("#forecast");
+  let days = response.data.daily;
+  let content = "";
+
+  days.forEach(function (day) {
+    console.log(day);
+    content =
+      content +
+      `<div class="col-2">
+            <div class="card" style="width: 10rem">
+              <div class="card-body">
+                <h5 class="card-title">
+                  ${formatDay(day.dt)}
+                  <img
+                src="http://openweathermap.org/img/wn/${
+                  day.weather[0].icon
+                }@2x.png"
+                alt="Sunny icon"
+                id="icon"
+              />
+                </h5>
+                <p class="card-text">${day.temp.min}°C ~ ${day.temp.max}°C</p>
+              </div>
+            </div></div>`;
+  });
+  row.innerHTML = content;
+}
+
+function forecast(response) {
+  let apiKey = "cf0f1f173fb62dd2bd98180f65a77eaf";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(forecastHTML);
+}
+
 function showTemperature(response) {
+  forecast(response);
+
   let temp = Math.round(response.data.main.temp);
   console.log(temp);
 
@@ -79,7 +124,7 @@ function retrievePosition(position) {
 }
 
 function currentTemp(event) {
-  event.preventDefault();
+  if (event != null) event.preventDefault();
 
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
@@ -114,3 +159,5 @@ temp.addEventListener("click", tempConvert);
 
 let button = document.querySelector("#currentButton");
 button.addEventListener("click", currentTemp);
+
+currentTemp();
