@@ -51,12 +51,13 @@ function forecastHTML(response) {
   let days = response.data.daily;
   let content = "";
 
-  days.forEach(function (day) {
-    console.log(day);
-    content =
-      content +
-      `<div class="col-2">
-            <div class="card" style="width: 10rem">
+  days.forEach(function (day, index) {
+    if (index < 5) {
+      console.log(day);
+      content =
+        content +
+        `<div class="col-2">
+            <div class="card" style="width: 10rem; border: none">
               <div class="card-body">
                 <h5 class="card-title">
                   ${formatDay(day.dt)}
@@ -68,9 +69,13 @@ function forecastHTML(response) {
                 id="icon"
               />
                 </h5>
-                <p class="card-text">${day.temp.min}°C ~ ${day.temp.max}°C</p>
+                <p class="card-text">${Math.round(
+                  day.temp.min
+                )}°C ~ ${Math.round(day.temp.max)}°C</p>
+               
               </div>
             </div></div>`;
+    }
   });
   row.innerHTML = content;
 }
