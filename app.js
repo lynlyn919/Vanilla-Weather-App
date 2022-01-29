@@ -62,7 +62,7 @@ function forecastHTML(response) {
                 <h5 class="card-title">
                   ${formatDay(day.dt)}
                   <img
-                src="http://openweathermap.org/img/wn/${
+                src="https://openweathermap.org/img/wn/${
                   day.weather[0].icon
                 }@2x.png"
                 alt="Sunny icon"
@@ -122,7 +122,7 @@ function retrievePosition(position) {
   console.log(position.coords.longitude);
   let units = "metric";
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiEndpoint = "http://api.openweathermap.org/data/2.5/weather";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showTemperature);
